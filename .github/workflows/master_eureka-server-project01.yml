@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'eureka-server-project01'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_35fa3dffc10f4a91bd364213b451dfd2 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: '*.jar'
