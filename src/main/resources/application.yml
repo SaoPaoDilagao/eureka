@@ -9,8 +9,3 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-    serviceUrl:
-      defaultZone: https://bootcamp-eurekaserver.azurewebsites.net:443/eureka
-  instance:
-    hostname: bootcamp-eurekaserver.azurewebsites.net
-    instanceId: ${eureka.instance.hostname}:${spring.application.name}:443
