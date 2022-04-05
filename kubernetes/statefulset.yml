@@ -15,29 +15,15 @@ spec:
     spec:
       containers:
         - name: eureka
-          image: jordidiaz495/eureka-server:1.0
+          image: ${REPOSITORY_NAME}.azurecr.io/${APP_NAME}:${IMAGE_TAG}
           imagePullPolicy: Always
           ports:
             - containerPort: 8761
           env:
+            - name: PROFILE
+              value: prod
             - name: EUREKA_SERVER_ADDRESS
               valueFrom:
                 configMapKeyRef:
                   name: eureka-cm
                   key: eureka_service_address
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: eureka-lb
-  labels:
-    app: eureka
-spec:
-  selector:
-    app: eureka
-  type: NodePort
-  ports:
-    - port: 80
-      targetPort: 8761

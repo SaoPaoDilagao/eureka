@@ -4,12 +4,5 @@ server:
 spring:
   application:
     name: eureka-server
-
-eureka:
-  instance:
-    hostname: "${HOSTNAME}.eureka"
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER_ADDRESS}
+  profiles:
+    active: ${PROFILE:dev}
